@@ -1,0 +1,141 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1thf0hob04a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdrlt"]
+bg_color = Color(0.0430392, 0.0430392, 0.0430391, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywdli"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Background" type="Node2D"]
+
+[node name="Bg" type="Panel" parent="."]
+custom_minimum_size = Vector2(562, 752)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tdrlt")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(128, 128)
+offset_left = 10.0
+offset_top = 104.0
+offset_right = 552.0
+offset_bottom = 646.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="Cell1" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell2" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell3" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell4" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell5" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell6" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell7" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell8" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell9" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell10" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell11" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell12" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell13" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell14" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell15" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
+
+[node name="Cell16" type="Panel" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.784314)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywdli")
