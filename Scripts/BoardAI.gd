@@ -1,5 +1,10 @@
 class_name BoardAI extends Node
 
+"""
+This class is control the board for AI, it change the state in back, and not
+upgrade the UI
+"""
+
 const WIDTH := 4
 const HEIGHT := 4
 
