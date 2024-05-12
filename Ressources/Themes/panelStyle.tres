@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://2my6mutui404"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u27pb"]
+bg_color = Color(0.0980392, 0.172549, 0.647059, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.180005, 0.180005, 0.180005, 1)
+shadow_size = 5
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxFlat_u27pb")

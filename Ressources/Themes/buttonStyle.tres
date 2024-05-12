@@ -1,0 +1,50 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dhejyowwgk0n2"]
+
+[ext_resource type="FontFile" uid="uid://cw48peaxxmfvq" path="res://Assets/Font/ARCADECLASSIC.TTF" id="1_pdqnt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hyb6"]
+bg_color = Color(0.0823529, 0.180392, 0.47451, 1)
+border_width_bottom = 5
+border_color = Color(0.0596082, 0.137896, 0.380837, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lh0la"]
+bg_color = Color(0.220615, 0.380296, 0.836824, 1)
+border_width_bottom = 15
+border_color = Color(0.0834154, 0.178601, 0.473328, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xj7b1"]
+bg_color = Color(0.15761, 0.297521, 0.722538, 1)
+border_width_bottom = 15
+border_color = Color(0.0596082, 0.137896, 0.380837, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqxv2"]
+bg_color = Color(0.145098, 0.278431, 0.686275, 1)
+border_width_bottom = 5
+border_color = Color(0.0980392, 0.172549, 0.647059, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[resource]
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_pdqnt")
+Button/styles/disabled = SubResource("StyleBoxFlat_2hyb6")
+Button/styles/hover = SubResource("StyleBoxFlat_lh0la")
+Button/styles/normal = SubResource("StyleBoxFlat_xj7b1")
+Button/styles/pressed = SubResource("StyleBoxFlat_vqxv2")
