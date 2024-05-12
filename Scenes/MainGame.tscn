@@ -1,0 +1,182 @@
+[gd_scene load_steps=11 format=3 uid="uid://btt743ifvll08"]
+
+[ext_resource type="Script" path="res://Scripts/Gameplay.gd" id="1_melbu"]
+[ext_resource type="PackedScene" uid="uid://b1thf0hob04a" path="res://Scenes/Background.tscn" id="2_3lkrg"]
+[ext_resource type="PackedScene" uid="uid://d2p8dp1gu6te2" path="res://Scenes/Board.tscn" id="3_ct1l6"]
+[ext_resource type="Script" path="res://Ressources/KeyboardControl.gd" id="4_5pugd"]
+[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="4_arl5q"]
+[ext_resource type="Theme" uid="uid://dhejyowwgk0n2" path="res://Ressources/Themes/buttonStyle.tres" id="5_inq8c"]
+[ext_resource type="Script" path="res://Scripts/ScoresManager.gd" id="6_2ghwk"]
+[ext_resource type="Theme" uid="uid://2my6mutui404" path="res://Ressources/Themes/panelStyle.tres" id="6_16iix"]
+[ext_resource type="FontFile" uid="uid://cw48peaxxmfvq" path="res://Assets/Font/ARCADECLASSIC.TTF" id="7_fjcps"]
+[ext_resource type="Texture2D" uid="uid://ck6705mw5g78i" path="res://Assets/Buttons/reset.png" id="7_q7r63"]
+
+[node name="Gameplay" type="Node2D"]
+script = ExtResource("1_melbu")
+
+[node name="Background" parent="." instance=ExtResource("2_3lkrg")]
+
+[node name="Board" parent="." instance=ExtResource("3_ct1l6")]
+four_chance = 20
+
+[node name="KeyboardControl" type="Node2D" parent="."]
+script = ExtResource("4_5pugd")
+
+[node name="ScoresManager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("6_2ghwk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScoresManager"]
+custom_minimum_size = Vector2(542, 80)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 552.0
+offset_bottom = 90.0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="CurrentScoreContainer" type="Panel" parent="ScoresManager/HBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme = ExtResource("6_16iix")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScoresManager/HBoxContainer/CurrentScoreContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="CurrentScoreLabel" type="Label" parent="ScoresManager/HBoxContainer/CurrentScoreContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.768627, 0.133333, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_fjcps")
+theme_override_font_sizes/font_size = 20
+text = "Score:"
+
+[node name="CurrentScore" type="Label" parent="ScoresManager/HBoxContainer/CurrentScoreContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fjcps")
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="HighScoreContainer" type="Panel" parent="ScoresManager/HBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme = ExtResource("6_16iix")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScoresManager/HBoxContainer/HighScoreContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScoresManager/HBoxContainer/HighScoreContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="HighScoreLabel" type="Label" parent="ScoresManager/HBoxContainer/HighScoreContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.768627, 0.133333, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_fjcps")
+theme_override_font_sizes/font_size = 20
+text = "High   Score:"
+
+[node name="Reset" type="TextureButton" parent="ScoresManager/HBoxContainer/HighScoreContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "Reset high score"
+texture_normal = ExtResource("7_q7r63")
+ignore_texture_size = true
+
+[node name="HighScore" type="Label" parent="ScoresManager/HBoxContainer/HighScoreContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fjcps")
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 281.0
+offset_top = 699.0
+offset_right = 281.0
+offset_bottom = 699.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -40.0
+offset_right = 210.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 150
+
+[node name="AutoPlay" type="Button" parent="Buttons/HBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("5_inq8c")
+text = "autoplay"
+
+[node name="Restart" type="Button" parent="Buttons/HBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("5_inq8c")
+text = "Restart"
+
+[node name="GameOver" type="ColorRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.85098)
+custom_minimum_size = Vector2(552, 552)
+offset_left = 5.0
+offset_top = 99.0
+offset_right = 557.0
+offset_bottom = 651.0
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(271, 271)
+color = Color(1.05286e-08, 0.0273283, 0.0732851, 1)
+script = ExtResource("4_arl5q")
+
+[node name="GameOverText" type="Label" parent="GameOver"]
+layout_mode = 0
+offset_right = 562.0
+offset_bottom = 552.0
+theme_override_fonts/font = ExtResource("7_fjcps")
+theme_override_font_sizes/font_size = 56
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gameover" from="Board" to="GameOver" method="_on_board_gameover"]
+[connection signal="update_score" from="Board" to="ScoresManager" method="_on_board_update_score"]
+[connection signal="move" from="KeyboardControl" to="." method="_on_keyboard_control_move"]
+[connection signal="button_down" from="ScoresManager/HBoxContainer/HighScoreContainer/VBoxContainer/HBoxContainer/Reset" to="ScoresManager" method="_on_reset_button_down"]
+[connection signal="button_down" from="Buttons/HBoxContainer/AutoPlay" to="." method="_on_auto_play_button_down"]
+[connection signal="button_down" from="Buttons/HBoxContainer/Restart" to="." method="_on_restart_button_down"]
+[connection signal="button_down" from="Buttons/HBoxContainer/Restart" to="ScoresManager" method="_on_restart_button_down"]
+[connection signal="button_down" from="Buttons/HBoxContainer/Restart" to="GameOver" method="_make_invisible"]
