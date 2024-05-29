@@ -224,7 +224,7 @@ func is_game_over() -> bool:
 
 func clear_UI() -> void:
 	for child in board.get_children():
-		board.Remove_child(child)
+		board.remove_child(child)
 
 
 func play(direction: String) -> void:
