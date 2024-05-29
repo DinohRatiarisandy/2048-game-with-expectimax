@@ -52,7 +52,7 @@ func move_tiles(direction: String) -> bool:
 		[false, false, false, false],
 		[false, false, false, false]
 	]
-	
+
 	if direction == "move_left" or direction == "move_right":
 		if direction == "move_right":
 			reverse_state("column")
@@ -74,8 +74,6 @@ func move_tiles(direction: String) -> bool:
 						and merged[i][j - shift - 1] == false
 					):
 						var new_tile_val = state[i][j - shift - 1].value * 2
-						#state[i][j - shift].queue_free()
-						#state[i][j - shift - 1].queue_free()
 						state[i][j - shift] = null
 						state[i][j - shift - 1] = null
 						var tile := Tile.new()
@@ -108,8 +106,6 @@ func move_tiles(direction: String) -> bool:
 						and merged[i - shift - 1][j] == false
 					):
 						var new_tile_val = state[i - shift - 1][j].value * 2
-						#state[i - shift][j].queue_free()
-						#state[i - shift - 1][j].queue_free()
 						state[i - shift][j] = null
 						state[i - shift - 1][j] = null
 						var tile := Tile.new()
@@ -134,7 +130,7 @@ func is_game_over() -> bool:
 			):
 				return false
 			if (
-				i + 1 < HEIGHT and 
+				i + 1 < HEIGHT and
 				(state[i + 1][j] == null or state[i][j].value == state[i + 1][j].value)
 			):
 				return false

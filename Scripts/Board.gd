@@ -13,7 +13,7 @@ signal update_score(score)
 
 const WIDTH := 4
 const HEIGHT := 4
-const TILE := preload("res://Scenes/Tile/Tile.tscn")
+const TILE := preload("res://Scenes/Tile.tscn")
 const OFFSET := Vector2(64, 64)
 
 var state := []
@@ -32,11 +32,15 @@ func print_state() -> void:
 		for j in range(HEIGHT):
 			if state[i][j]:
 				tab[i][j] = state[i][j].value
-	
+
 	for row in tab:
 		print(row)
-	
+
 	print("------------")
+
+
+func get_state() -> Array:
+	return state
 
 
 func _ready() -> void:
@@ -83,8 +87,8 @@ func spawn_new_tile() -> void:
 	add_child(tile)
 	tile.global_position = GridCoord.get_pos(valid_cell_idx.x, valid_cell_idx.y) + OFFSET
 	tile.scale = Vector2(0, 0)
-	tile.spawn_anim()
-	tile.set_image(str(new_tile_val))
+	tile.SpawnAnim()
+	tile.SetImage(str(new_tile_val))
 
 
 func reverse_state(key: String) -> void:
@@ -109,7 +113,7 @@ func move_tiles(direction: String) -> bool:
 		[false, false, false, false],
 		[false, false, false, false]
 	]
-	
+
 	if direction == "move_left" or direction == "move_right":
 		if direction == "move_right":
 			reverse_state("column")
@@ -123,9 +127,9 @@ func move_tiles(direction: String) -> bool:
 
 					if shift > 0:
 						var column_idx := ~(j - shift) + WIDTH if direction == "move_right" else j - shift
-						state[i][j].slide_anim(GridCoord.get_pos(i, column_idx) + OFFSET)
+						state[i][j].SlideAnim(GridCoord.get_pos(i, column_idx) + OFFSET)
 						swap(Vector2i(i, j), Vector2i(i, j - shift))
-						state[i][j - shift].set_image(str(state[i][j - shift].value))
+						state[i][j - shift].SetImage(str(state[i][j - shift].value))
 						moved = true
 
 					if (
@@ -135,8 +139,8 @@ func move_tiles(direction: String) -> bool:
 					):
 						var column_idx := ~(j - shift - 1) + WIDTH if direction == "move_right" else j - shift - 1
 						var new_tile_val = state[i][j - shift - 1].value * 2
-						state[i][j - shift].remove()
-						state[i][j - shift - 1].remove()
+						state[i][j - shift].Remove()
+						state[i][j - shift - 1].Remove()
 						state[i][j - shift] = null
 						state[i][j - shift - 1] = null
 						var tile := TILE.instantiate()
@@ -144,8 +148,8 @@ func move_tiles(direction: String) -> bool:
 						tile.value = new_tile_val
 						tile.global_position = GridCoord.get_pos(i, column_idx) + OFFSET
 						tile.scale = Vector2(1.5, 1.5)
-						tile.merge_anim()
-						tile.set_image(str(new_tile_val))
+						tile.MergeAnim()
+						tile.SetImage(str(new_tile_val))
 						state[i][j - shift - 1] = tile
 						merged[i][j - shift - 1] = true
 						moved = true
@@ -167,9 +171,9 @@ func move_tiles(direction: String) -> bool:
 
 					if shift > 0:
 						var row_idx := ~(i - shift) + HEIGHT if direction == "move_down" else i - shift
-						state[i][j].slide_anim(GridCoord.get_pos(row_idx, j) + OFFSET)
+						state[i][j].SlideAnim(GridCoord.get_pos(row_idx, j) + OFFSET)
 						swap(Vector2i(i, j), Vector2i(i - shift, j))
-						state[i - shift][j].set_image(str(state[i - shift][j].value))
+						state[i - shift][j].SetImage(str(state[i - shift][j].value))
 						moved = true
 
 					if (
@@ -179,9 +183,9 @@ func move_tiles(direction: String) -> bool:
 					):
 						var row_idx := ~(i - shift - 1) + HEIGHT if direction == "move_down" else i - shift - 1
 						var new_tile_val = state[i - shift - 1][j].value * 2
-						state[i - shift][j].slide_anim(GridCoord.get_pos(row_idx, j) + OFFSET)
-						state[i - shift][j].remove()
-						state[i - shift - 1][j].remove()
+						state[i - shift][j].SlideAnim(GridCoord.get_pos(row_idx, j) + OFFSET)
+						state[i - shift][j].Remove()
+						state[i - shift - 1][j].Remove()
 						state[i - shift][j] = null
 						state[i - shift - 1][j] = null
 						var tile := TILE.instantiate()
@@ -189,8 +193,8 @@ func move_tiles(direction: String) -> bool:
 						tile.value = new_tile_val
 						tile.global_position = GridCoord.get_pos(row_idx, j) + OFFSET
 						tile.scale = Vector2(1.5, 1.5)
-						tile.merge_anim()
-						tile.set_image(str(new_tile_val))
+						tile.MergeAnim()
+						tile.SetImage(str(new_tile_val))
 						state[i - shift - 1][j] = tile
 						merged[i - shift - 1][j] = true
 						moved = true
@@ -211,7 +215,7 @@ func is_game_over() -> bool:
 			):
 				return false
 			if (
-				i + 1 < HEIGHT and 
+				i + 1 < HEIGHT and
 				(state[i + 1][j] == null or state[i][j].value == state[i + 1][j].value)
 			):
 				return false
@@ -220,16 +224,16 @@ func is_game_over() -> bool:
 
 func clear_UI() -> void:
 	for child in board.get_children():
-		board.remove_child(child)
+		board.Remove_child(child)
 
 
 func play(direction: String) -> void:
 	var tmp: Array = state.duplicate()
 	var is_moved := move_tiles(direction)
-	if is_moved == false: 
+	if is_moved == false:
 		state = tmp
 		return
-	# HACK: How to remove in memory the temporary array
+	# HACK: How to Remove in memory the temporary array
 	tmp.clear()
 	await get_tree().create_timer(0.12).timeout
 	spawn_new_tile()
@@ -240,4 +244,3 @@ func play(direction: String) -> void:
 func restart() -> void:
 	clear_UI()
 	initialize()
-
