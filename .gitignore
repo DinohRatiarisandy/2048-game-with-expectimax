@@ -6,3 +6,4 @@ build/
 *.tmp
 project.godot
 export_presets.cfg
+.vscode/
