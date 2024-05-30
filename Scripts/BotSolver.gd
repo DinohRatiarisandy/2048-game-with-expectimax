@@ -1,4 +1,4 @@
-class_name BotSolver extends Node
+class_name BotSolver extends Object
 """
 	This class is responsable to solve the 2048 game.
 	It's implement the EXPECITMAX algorithm.
@@ -46,7 +46,7 @@ func best_move(board: Board, depth: int) -> String:
 		if is_moved == false:
 			continue
 		results.append(expectimax(sim_board, depth, dir, false))
-		sim_board.queue_free()
+		sim_board.free()
 	for res in results:
 		if res[0] >= best_score:
 			best_score = res[0]
@@ -56,7 +56,7 @@ func best_move(board: Board, depth: int) -> String:
 
 func expectimax(board_ai: BoardAI, depth: int, dir: String, is_player_max: bool) -> Array:
 	if board_ai.is_game_over() == true:
-		board_ai.queue_free()
+		board_ai.free()
 		return [-INFINITY, dir]
 	elif depth == 0:
 		return [snake_heuristic(board_ai), dir]
@@ -72,7 +72,7 @@ func expectimax(board_ai: BoardAI, depth: int, dir: String, is_player_max: bool)
 				var res = expectimax(sim_board, depth - 1, d, false)
 				if res[0] > a:
 					a = res[0]
-			sim_board.queue_free()
+			sim_board.free()
 	elif is_player_max == false:
 		a = 0
 		var open_cells := board_ai.get_blank_cells()
