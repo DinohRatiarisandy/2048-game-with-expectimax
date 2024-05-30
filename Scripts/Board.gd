@@ -1,4 +1,4 @@
-class_name Board extends Node
+class_name Board extends Node2D
 
 """
 This class is to control the function of the state state.
@@ -222,11 +222,6 @@ func is_game_over() -> bool:
 	return true
 
 
-func clear_UI() -> void:
-	for child in board.get_children():
-		board.remove_child(child)
-
-
 func play(direction: String) -> void:
 	var tmp: Array = state.duplicate()
 	var is_moved := move_tiles(direction)
@@ -239,8 +234,3 @@ func play(direction: String) -> void:
 	spawn_new_tile()
 	if is_game_over() == true:
 		emit_signal("gameover")
-
-
-func restart() -> void:
-	clear_UI()
-	initialize()
