@@ -1,15 +1,15 @@
-class_name BoardAI extends Node
+class_name BoardAI extends Object
 
 """
 This class is control the board for AI, it change the state in back, and not
 upgrade the UI
 """
 
+const Tile = preload("res://Scripts/Tile.cs")
 const WIDTH := 4
 const HEIGHT := 4
 
 var state := []
-
 
 func add_tile(pos: Vector2i, tile_val: int) -> void:
 	if tile_val == 0:
