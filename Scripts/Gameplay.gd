@@ -23,16 +23,12 @@ func _on_keyboard_control_move(direction: String) -> void:
 
 
 func _on_restart_button_down() -> void:
-	board.restart()
-	auto_play = false
-	auto_play_btn.text = "autoplay"
-	auto_play_btn.disabled = false
-
+	get_tree().reload_current_scene()
 
 func _on_auto_play_button_down() -> void:
 	toggle_auto_play_btn()
-	var ai := BotSolver.new()
+	var ai := BotSolver.new();
 	while auto_play:
 		board.play(ai.best_move(board, 3))
 		await get_tree().create_timer(0.25).timeout
-	ai.queue_free()
+	ai.free()
