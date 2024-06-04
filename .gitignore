@@ -4,6 +4,5 @@ addons/
 build/
 *.import
 *.tmp
-project.godot
 export_presets.cfg
 .vscode/
