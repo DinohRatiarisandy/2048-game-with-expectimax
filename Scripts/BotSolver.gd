@@ -1,4 +1,5 @@
 class_name BotSolver extends Object
+
 """
 	This class is responsable to solve the 2048 game.
 	It's implement the EXPECITMAX algorithm.
@@ -12,7 +13,6 @@ const PERFECT_SNAKE := [
 	[2**9, 2**10,2**11, 2**12],
 	[2**16, 2**15,2**14, 2**13]
 ]
-
 
 func deepcopy(board: Array) -> Array:
 	var new_state := []
@@ -56,7 +56,6 @@ func best_move(board: Board, depth: int) -> String:
 
 func expectimax(board_ai: BoardAI, depth: int, dir: String, is_player_max: bool) -> Array:
 	if board_ai.is_game_over() == true:
-		board_ai.free()
 		return [-INFINITY, dir]
 	elif depth == 0:
 		return [snake_heuristic(board_ai), dir]
