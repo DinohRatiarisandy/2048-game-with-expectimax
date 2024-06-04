@@ -228,8 +228,6 @@ func play(direction: String) -> void:
 	if is_moved == false:
 		state = tmp
 		return
-	# HACK: How to Remove in memory the temporary array
-	tmp.clear()
 	await get_tree().create_timer(0.12).timeout
 	spawn_new_tile()
 	if is_game_over() == true:
