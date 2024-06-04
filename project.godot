@@ -13,14 +13,14 @@ config_version=5
 config/name="2048-with-ai"
 config/tags=PackedStringArray("gamewithalgo", "inprocess")
 run/main_scene="res://Scenes/Splash.tscn"
-config/features=PackedStringArray("4.2", "GL Compatibility")
+config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 boot_splash/bg_color=Color(0.00820202, 0.00820203, 0.00820202, 1)
 boot_splash/show_image=false
 config/icon="res://icon.png"
 
 [autoload]
 
-GridCoord="*res://Ressources/GridCoordManager.gd"
+GridCoord="*res://Autoload/GridCoordManager.gd"
 
 [display]
 
